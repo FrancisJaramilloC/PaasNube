@@ -1,0 +1,31 @@
+# Entornos virtuales locales
+venv/
+.venv/
+env/
+ENV/
+
+# Cache de Python y archivos compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Base de datos SQLite local (para no subir datos de desarrollo a Git)
+closet.db
+closet.db-journal
+
+# Configuraciones de editores de codigo e IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
