@@ -8,6 +8,18 @@ from typing import List, Optional
 
 from app.database import engine, get_db, Base
 from app import models, schemas, crud
+from azure.cosmos.aio import CosmosClient
+import os
+
+# Tu App Service leerá la variable automáticamente en la nube
+ENDPOINT_OR_STRING = os.getenv("COSMOS_CONNECTION_STRING")
+
+# Inicializa el cliente de Azure Cosmos DB
+client = CosmosClient.from_connection_string(ENDPOINT_OR_STRING)
+
+# Selecciona tu base de datos y contenedor de backup
+database = client.get_database_client("backup_smartcloset")
+container = database.get_container_client("items_closet")
 
 # Crear tablas de base de datos automáticamente al iniciar
 # Esto facilita el despliegue directo en PaaS sin requerir pasos de migración manual
